@@ -1,4 +1,4 @@
-# Project Title
+# wordpress-plugin-post-favorite
 
 A simple plugin for wordpress. Lets you add POSTS to a list in our favorites.
 

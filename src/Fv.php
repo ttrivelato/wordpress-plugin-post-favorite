@@ -33,7 +33,7 @@ class Fv
 
         $url = "";
         $url .= "<a href=\"javascript:void(0)\" class=\"add-favorite\" data-id-favorite=\"" . get_the_ID() . "\">";
-        $url .= "<img class=\"star-favorite\" src=\"" . plugins_url($imgFolder.'favorite_off') . "\">" . __("Favorite");
+        $url .= "<img class=\"star-favorite\" src=\"" . plugins_url($imgFolder.'favorite_off.png') . "\">" . __("Favorite");
         $url .= "</a>";
 
         //Check if exists favorite (turn on/turn off)
@@ -41,7 +41,7 @@ class Fv
         {
             $url = "";
             $url .= "<a href=\"javascript:void(0)\" class=\"remove-favorite\" data-id-favorite=\"" . get_the_ID() . "\">";
-            $url .= "<img class=\"star-favorite\" src=\"" . plugins_url($imgFolder.'favorite_on') . "\">" . __("Favorite");
+            $url .= "<img class=\"star-favorite\" src=\"" . plugins_url($imgFolder.'favorite_on.png') . "\">" . __("Favorite");
             $url .= "</a>";
         }
 

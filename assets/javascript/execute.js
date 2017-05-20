@@ -9,7 +9,8 @@ function favorite(id){
         url: "/wp-admin/admin-ajax.php",
         
         data: {"action": "update_favorites","IdFavorite":id},
-        success: function (response) {
+        
+        success: function(response) {
             
             //IMG FOLDER + IMG ON
             var favorite_on = '/wp-content/plugins/wordpress-plugin-post-favorite/assets/images/favorite_on.png';
@@ -58,9 +59,9 @@ function mountWidget(){
         data: {"action": "get_title_favorites"},
         
         success: function (response) {
-            jQuery("#log-favorite-widget").html('');
+            jQuery("#wppf-favorite-widget").html('');
             jQuery.each(response, function( key, value ){
-                jQuery("#log-favorite-widget").append('<li>'+value+'</li>');
+                jQuery("#wppf-favorite-widget").append('<li>'+value+'</li>');
             });
         },
         
@@ -83,17 +84,17 @@ function embedFavorite(){
             //Verify if favorite is empty
             if(response.length == 0) {
                
-                jQuery("#log-favorite-widget").html('Favorites is empty');
-                jQuery("#log-favorite-shortcode").html('Favorites is empty');
+                jQuery("#wppf-favorite-widget").html('Favorites is empty');
+                jQuery("#wppf-favorite-shortcode").html('Favorites is empty');
             
             } else {
-                 jQuery("#log-favorite-widget").html('');
-                 jQuery("#log-favorite-shortcode").html('');
+                 jQuery("#wppf-favorite-widget").html('');
+                 jQuery("#wppf-favorite-shortcode").html('');
 
                  jQuery.each(response, function(key, value) {
 
-                     jQuery("#log-favorite-widget").append('<li><a href=?p='+key+'>'+value+'</a></li>');
-                     jQuery("#log-favorite-shortcode").append('<li><a href=?p='+key+'>'+value+'</a></li>');
+                     jQuery("#wppf-favorite-widget").append('<li><a href=?p='+key+'>'+value+'</a></li>');
+                     jQuery("#wppf-favorite-shortcode").append('<li><a href=?p='+key+'>'+value+'</a></li>');
                  });
             }
         },

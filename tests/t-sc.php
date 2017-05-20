@@ -37,7 +37,7 @@ class Shortcode extends \WP_UnitTestCase {
      */
     public function testEnableFavorite()
     {
-        $this->expectOutputString('<ul id="log-favorite-shortcode"><li></li><li></li></ul>');
+        $this->expectOutputString('<ul id="wppf-favorite-shortcode"><li></li><li></li></ul>');
         Sc::enableFavorite();
     }
 }

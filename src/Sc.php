@@ -9,10 +9,6 @@
 //Set namespace
 namespace WordpressPluginPostFavorite;
 
-//Use FV
-use WordpressPluginPostFavorite\Fv;
-require_once('Fv.php');
-
 /**
 * Main Class to Source Code In Wordpress
 * @access public
@@ -28,8 +24,8 @@ class Sc extends Fv
      */
     public static function enableFavorite() 
     {
-        $listFavorites = self::listTitleFavorites();
-        echo "<ul id=\"log-favorite-shortcode\">";
+        $listFavorites = \Wppf::listTitleFavorites();
+        echo "<ul id=\"wppf-favorite-shortcode\">";
         
         foreach ($listFavorites as $favorite) 
         {

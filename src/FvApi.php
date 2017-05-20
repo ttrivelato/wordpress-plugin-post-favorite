@@ -16,19 +16,6 @@ namespace WordpressPluginPostFavorite;
 */
 class FvApi extends Fv 
 {
-    /**
-     * @name toJson
-     * @access private
-     * @return json return json data
-     * @param array $data Collection of data
-     */
-    private function toJson($data) 
-    {
-        @header('Content-Type: application/json');
-        echo json_encode( $data );
-        wp_die();
-    }
-    
      /**
      * @name favorites
      * @access public
@@ -36,7 +23,7 @@ class FvApi extends Fv
      */
     public function listFavorites() 
     {
-        self::toJson(self::favorites());
+        \Wppf::toJson(\Wppf::favorites());
     }
     
     /**
@@ -47,11 +34,11 @@ class FvApi extends Fv
      */
     public function update() 
     {
-        $fv = self::favorites();
+        $fv = \Wppf::favorites();
         $fv[] = $_POST['IdFavorite'];
         $fv = array_unique($fv);
-        self::save(self::arrayTo($fv));
-        self::toJson($fv);
+        \Wppf::save(\Wppf::arrayTo($fv));
+        \Wppf::toJson($fv);
     }
 
     /**
@@ -62,15 +49,15 @@ class FvApi extends Fv
      */
     public function remove() 
     {
-        $fv = self::favorites();
+        $fv = \Wppf::favorites();
         
         //Verify if a POST id Favorite Exists
         if (($key = array_search($_POST['IdFavorite'], $fv)) !== false) 
         {
             unset($fv[$key]);
         }
-        self::save(self::arrayTo($fv));
-        self::toJson($fv);
+        \Wppf::save(\Wppf::arrayTo($fv));
+        \Wppf::toJson($fv);
     }
 
     /**
@@ -80,7 +67,7 @@ class FvApi extends Fv
      */
     public function titleFavorites() 
     {
-        self::toJson(self::listTitleFavorites());
+        \Wppf::toJson(\Wppf::listTitleFavorites());
     }
 }
 

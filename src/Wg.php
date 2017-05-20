@@ -6,15 +6,8 @@
  * @author Thiago Trivelato(ttrivelato@gmail.com)
  */
 
-//Use FV
-use WordpressPluginPostFavorite\Fv;
-require_once('Fv.php');
-
 class favorites_widget extends WP_Widget 
 {
-    //Set Favorires
-    public $favorites;
-
     /**
      * @name __construct
      * @access public
@@ -23,7 +16,6 @@ class favorites_widget extends WP_Widget
     function __construct() 
     {
         parent::__construct('favorites_widget',__( 'Favorites Widget' ),array( 'description' => __('List of Favorites')));
-        $this->favorites = new Fv();
     }
     
     /**
@@ -35,7 +27,7 @@ class favorites_widget extends WP_Widget
     public function widget($args, $instance) 
     {
         $listTitleFavorites = array();
-        $listTitleFavorites = $this->favorites->listTitleFavorites();
+        $listTitleFavorites = \Wppf::listTitleFavorites();
         
         $title = apply_filters('widget_title', $instance['title']);
         
@@ -48,7 +40,7 @@ class favorites_widget extends WP_Widget
                
         ?>
 
-        <ul id="log-favorite-widget">
+        <ul id="wppf-favorite-widget">
             
             <!--Verify if not exist favorite -->            
             <?php if(count($listTitleFavorites) == 0):?>

@@ -12,11 +12,10 @@ namespace WordpressPluginPostFavorite;
 /**
 * Load File(Javascript) to Favorite Plugin
 * @access public
-* @return object FvApi
+* @return object Lf
 */
 class Lf 
 {
-
     /**
      * @name load
      * @access public
@@ -25,7 +24,6 @@ class Lf
     public static function execute() 
     {
         $folder = plugin_dir_url( __FILE__ ) . '../assets/javascript/';
-        wp_enqueue_script('action-log-favorites', $folder.'execute.js', array('jquery'), '0.1' );
+        wp_enqueue_script('action-favorites', $folder.'execute.js', array('jquery'), '0.1' );
     }
-
 }
